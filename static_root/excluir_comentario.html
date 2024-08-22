@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excluir denúncia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        button {
+            background-color: #ff6347; /* Cor laranja */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #e5533d; /* Tom mais escuro de laranja para hover */
+        }
+        a {
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exclua sua denúncia</h1>
+        <p>Tem certeza de que deseja excluir "{{ comentario.texto }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Excluir</button>
+        </form>
+        <a href="{% url 'pricing' %}">Cancelar</a>
+    </div>
+</body>
+</html>

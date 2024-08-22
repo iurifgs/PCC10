@@ -1,0 +1,25 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar novo Animal</title>
+    <link rel="stylesheet" href="{% static 'css/obs.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form action="/pet/create/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Adicionar novo Animal</h1>
+            {{ form.as_p }}
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Sua ONG de Animais. Todos os direitos reservados. <a href="#">Política de Privacidade</a></p>
+    </footer>
+</body>
+</html>
+{% endblock %}

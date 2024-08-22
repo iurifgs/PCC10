@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale conosco</title>
+    <style>
+        /* Inclua o CSS aqui ou em um arquivo separado */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            grid-column: span 2;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #ff6347;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            grid-column: span 2;
+        }
+
+        button:hover {
+            background-color: #e5533f;
+        }
+
+        .form-select {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h2>Fale com a Pet Solidários</h2>
+        <p>
+            Se você tem alguma dúvida, sugestão ou precisa de assistência, sinta-se à vontade para entrar em contato conosco usando o formulário abaixo. 
+            Estamos aqui para ajudar e garantir que suas necessidades sejam atendidas da melhor forma possível. 
+            Por favor, forneça as informações necessárias para que possamos responder de maneira eficiente e personalizada.
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+</body>
+</html>

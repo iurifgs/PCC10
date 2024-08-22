@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Editar{% else %}Nova{% endif %} Denúncia</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Editar{% else %}Nova{% endif %} Denúncia</h1>
+
+    <!-- Botão para voltar para a lista de denúncias -->
+    <a href="{% url 'denuncia_list' %}">
+        <button>Voltar para a Lista de Denúncias</button>
+    </a>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

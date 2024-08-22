@@ -1,0 +1,103 @@
+<style>
+    
+    form {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+form p {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #5baaff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+form button {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+</style>
+{% load static %}
+{% block content %}
+    <form method="POST" id="delete-form">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th colspan="2">Confirmação de Exclusão</th>
+            </tr>
+            <tr>
+                <td>ID Nome:</td>
+                <td>{{ animal.id }} {{ animal.nome }}</td>
+            </tr>
+            <tr>
+                <td>Raça:</td>
+                <td>{{ animal.raca }}</td>
+            </tr>
+            <tr>
+                <td>Data de Nascimento:</td>
+                <td>{{ animal.data_nascimento }}</td>
+            </tr>
+            <tr>
+                <td>Imagem:</td>
+                <td>
+                    {% if animal.imagem %}
+                        <img src="{{ animal.imagem.url }}" alt="{{ animal.nome }}" style="max-width: 200px;">
+                    {% else %}
+                        Sem imagem disponível
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="yes">Sim</button>
+        <a class="no" href="{% url 'admin' %}">Não</a>
+    </form>
+{% endblock %}

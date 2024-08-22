@@ -1,0 +1,91 @@
+body.login {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(/static/images/pets.jpg); /* Caminho ajustado para a imagem */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.login-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+p {
+    color: #666;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form input {
+    margin: 10px 0;
+    padding: 10px 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.credits {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Adicionando fontes externas */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Remover sublinhado do link */
+a {
+    text-decoration: none;
+}

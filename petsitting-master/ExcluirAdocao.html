@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Exclusão da Adoção</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmar Exclusão da Adoção</h1>
+        <p>Você tem certeza de que deseja excluir a adoção do(a) <strong>{{ adocao.nome_adotante }}</strong>?</p>
+        <p><strong>Data de Adoção:</strong> {{ adocao.data_adocao }}</p>
+        <p><strong>Estado Civil do Adotante:</strong> {{ adocao.estado_civil_adotante }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Excluir</button>
+            <a href="{% url 'admin' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

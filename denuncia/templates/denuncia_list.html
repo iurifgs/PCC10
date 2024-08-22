@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Denúncias</title>
+</head>
+<body>
+    <h1>Denúncias</h1>
+
+    <!-- Botão para criar nova denúncia -->
+    <a href="{% url 'denuncia_create' %}">
+        <button>Nova Denúncia</button>
+    </a>
+
+    <ul>
+        {% for denuncia in denuncias %}
+            <li>
+                {{ denuncia.animal }}
+                
+                <!-- Botão para editar a denúncia -->
+                <a href="{% url 'denuncia_update' denuncia.pk %}">
+                    <button>Editar</button>
+                </a>
+                
+                <!-- Formulário para deletar a denúncia -->
+                <form method="post" action="{% url 'denuncia_delete' denuncia.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Apagar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
